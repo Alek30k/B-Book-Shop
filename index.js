@@ -26,6 +26,16 @@ app.get("/books", (req, res) => {
   });
 });
 
+app.post("/books", (req, res) => {
+    const q = "INSERT INTO books(`title`, `desc`, `price`, `cover`) VALUES (?)";
+  
+    const values = [
+      req.body.title,
+      req.body.desc,
+      req.body.price,
+      req.body.cover,
+    ];
+
 app.listen(port, () => {
   console.log("Connected to port " + port);
 });
